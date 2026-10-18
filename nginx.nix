@@ -134,7 +134,7 @@
         listen = [ { addr = "100.64.0.12"; port = 443; ssl = true; } ];
         locations = {
           "/" = {
-            proxyPass = "http://127.0.0.1:3000";
+            proxyPass = "http://127.0.0.1:5006";
             extraConfig = ''
             '';
           };

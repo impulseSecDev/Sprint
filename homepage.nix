@@ -16,7 +16,7 @@
 
   sops.templates."homepage.env".content = ''
     HOMEPAGE_AUTH_SECRET=${config.sops.placeholder."homepage_auth_secret"}
-    HOMEPAGE_AUTH_PASSWORD=${config.sops.placeholderi."homepage_auth_password"}
+    HOMEPAGE_AUTH_PASSWORD=${config.sops.placeholder."homepage_auth_password"}
   '';
 
   virtualisation.oci-containers = {

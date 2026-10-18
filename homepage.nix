@@ -16,14 +16,17 @@
 
   sops.templates."homepage.env".content = ''
     HOMEPAGE_AUTH_SECRET=${config.sops.placeholder."homepage_auth_secret"}
-    HOMEPAGE_AUTH_PASSWORD=${config.sops.placeholder."homepage_auth_password"}
+    HOMEPAGE_AUTH_PASSWORD=${config.sops.placeholderi."homepage_auth_password"}
   '';
 
   virtualisation.oci-containers = {
     backend = "docker";
     containers.homepage = {
       image = "ghcr.io/gethomepage/homepage:latest";
-      volumes = [ "/var/lib/homepage:/app/config" ];
+      volumes = [
+        "/var/lib/homepage:/app/config" 
+        "/var/lib/homepage/images:/app/public/images"
+      ];
       ports = [ "3000:3000" ];
       environment = {
         HOMEPAGE_ALLOWED_HOSTS = "gethomepage.dev,home.mesh.loranjennings.com";
@@ -33,7 +36,6 @@
         PGID = "986";
       };
       environmentFiles = [ config.sops.templates."homepage.env".path ];
-      extraOptions = [ "--network=host" ];
     };
   };
 }

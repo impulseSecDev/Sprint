@@ -97,7 +97,7 @@
         listen = [ { addr = "100.64.0.12"; port = 443; ssl = true; } ];
         locations = {
           "/" = {
-            proxyPass = "http://127.0.0.1:8080";
+            proxyPass = "http://127.0.0.1:63497";
           };
         };
       };

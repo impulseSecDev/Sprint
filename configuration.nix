@@ -14,6 +14,7 @@
       ./octoprint.nix
       ./homepage.nix
       ./actual.nix
+      ./vikunja.nix
     ];
 
   fileSystems."/boot/firmware".options = lib.mkForce [ "noatime" "nofail" ];

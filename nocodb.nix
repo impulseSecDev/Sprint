@@ -195,3 +195,23 @@
 
   # Network
   systemd.services."docker-network-nocodb-network" = {
+    unitConfig.Description = "Network nocodb-network";
+    path = [ pkgs.docker ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStop = "docker network rm -f nocodb-network";
+    };
+    script = ''
+      docker network inspect nocodb-network || docker network create nocodb-network --driver=bridge
+    '';
+    partOf = [ "docker-compose-nocodb-root.target" ];
+    wantedBy = [ "docker-compose-nocodb-root.target" ];
+  };
+
+  # Root target
+  systemd.targets."docker-compose-nocodb-root" = {
+    unitConfig.Description = "Root target";
+    wantedBy = [ "multi-user.target" ];
+  };
+}

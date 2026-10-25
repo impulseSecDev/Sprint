@@ -29,13 +29,13 @@
     group = "root";
   };
 
-  users.groups.nocodb       = { gid = 984; };
-  users.groups.nocodb-redis = { gid = 985; };
-  users.groups.nocodb-db    = { gid = 986; };
+  users.groups.nocodb       = { gid = 974; };
+  users.groups.nocodb-redis = { gid = 975; };
+  users.groups.nocodb-db    = { gid = 976; };
 
-  users.users.nocodb       = { uid = 984; group = "nocodb";       isSystemUser = true; };
-  users.users.nocodb-redis = { uid = 985; group = "nocodb-redis"; isSystemUser = true; };
-  users.users.nocodb-db    = { uid = 986; group = "nocodb-db";    isSystemUser = true; };
+  users.users.nocodb       = { uid = 974; group = "nocodb";       isSystemUser = true; };
+  users.users.nocodb-redis = { uid = 975; group = "nocodb-redis"; isSystemUser = true; };
+  users.users.nocodb-db    = { uid = 976; group = "nocodb-db";    isSystemUser = true; };
 
   systemd.tmpfiles.rules = [
     "d /var/lib/nocodb          0755 root         root         -"
@@ -46,7 +46,7 @@
 
   virtualisation.oci-containers.containers."nocodb-db" = {
     image = "postgres:18.6";
-    user = "986:986";
+    user = "976:976";
     environment = {
       "POSTGRES_DB" = "nocodb";
       "POSTGRES_USER" = "nocodb";
@@ -84,7 +84,7 @@
 
   virtualisation.oci-containers.containers."nocodb" = {
     image = "nocodb/nocodb:latest";
-    user = "984:984";
+    user = "974:974";
     environment = {
       "NC_DISABLE_MUX" = "true";
       "NC_REDIS_URL" = "redis://redis:6379";
@@ -130,7 +130,7 @@
 
   virtualisation.oci-containers.containers."nocodb-redis" = {
     image = "redis:7";
-    user = "985:985";
+    user = "975:975";
     volumes = [
       "/var/lib/nocodb/redis:/data:rw"
     ];
@@ -160,7 +160,7 @@
 
   virtualisation.oci-containers.containers."nocodb-worker" = {
     image = "nocodb/nocodb:latest";
-    user = "984:984";
+    user = "974:974";
     environment = {
       "NC_REDIS_URL" = "redis://redis:6379";
       "NC_SITE_URL" = "http://localhost:8080";

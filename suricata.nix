@@ -228,8 +228,9 @@ re:dnp3
       ExecStartPre = "${pkgs.suricata}/bin/suricata -c /etc/suricata/suricata.yaml -T";
       ExecStart = "${pkgs.suricata}/bin/suricata -c /etc/suricata/suricata.yaml --pidfile /run/suricata/suricata.pid -q 0 -q 1 -q 2 -q 3";
       ExecReload = "${pkgs.suricata}/bin/suricatasc -c reload-rules";
+      TimeoutStartSec = "15min";
       Restart = "on-failure";
-      RestartSec = "5s";
+      RestartSec = "30s";
     };
   };
 

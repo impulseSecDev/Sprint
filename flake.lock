@@ -16,6 +16,19 @@
         "type": "github"
       }
     },
+    "et-open": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792785793,
+        "narHash": "sha256-ELoDTBYmb+28MquNMZmIOvg4kISRvGLdP2SuMacwh84=",
+        "type": "tarball",
+        "url": "https://rules.emergingthreats.net/open/suricata-7.0.3/emerging.rules.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://rules.emergingthreats.net/open/suricata-7.0.3/emerging.rules.tar.gz"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1767039857,
@@ -113,6 +126,7 @@
     },
     "root": {
       "inputs": {
+        "et-open": "et-open",
         "nixos-raspberrypi": "nixos-raspberrypi",
         "nixpkgs": "nixpkgs_2",
         "sops-nix": "sops-nix"

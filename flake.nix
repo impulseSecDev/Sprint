@@ -14,6 +14,10 @@
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    et-open = {
+      url = "https://rules.emergingthreats.net/open/suricata-7.0.3/emerging.rules.tar.gz";
+      flake = false;
+    };
   };
 
   nixConfig = {
@@ -28,7 +32,7 @@
   outputs = inputs@{ nixpkgs, nixos-raspberrypi, sops-nix, ... }: {
     nixosConfigurations.sprint = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = { inherit (inputs) nixos-raspberrypi; };
+      specialArgs = { inherit inputs; inherit (inputs) nixos-raspberrypi; };
       modules = [
         ./configuration.nix
         sops-nix.nixosModules.sops

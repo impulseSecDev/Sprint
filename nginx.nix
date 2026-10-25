@@ -152,6 +152,18 @@
           };
         };
       };
+      "noco.mesh.loranjennings.com" = {
+        useACMEHost = "mesh.loranjennings.com";
+        forceSSL = true;
+        listen = [ { addr = "100.64.0.12"; port = 443; ssl = true; } ];
+        locations = {
+          "/" = {
+            proxyPass = "http://127.0.0.1:52823";
+            extraConfig = ''
+            '';
+          };
+        }
+      };
     };
   };
 

@@ -30,8 +30,8 @@
         "--device=/dev/net/tun:/dev/net/tun"
       ];
       ports = [
-        "63497:8080" # SearXNG web interface
-        "27099:4444" # Degoog web interface
+        "127.4.0.1:63497:8080" # SearXNG web interface
+        "127.3.0.1:27099:4444" # Degoog web interface
       ];
       volumes = [
           "${config.sops.secrets.protonvpn_private_key.path}:/run/secrets/protonvpn_private_key:ro"

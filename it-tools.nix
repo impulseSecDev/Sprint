@@ -11,7 +11,7 @@
     containers = {
       it-tools = {
         image = "ghcr.io/corentinth/it-tools:latest";
-        ports = [ "11379:80" ];
+        ports = [ "127.5.0.1:11379:80" ];
         autoStart = true;
       };
     };

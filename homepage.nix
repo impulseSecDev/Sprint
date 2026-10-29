@@ -27,7 +27,7 @@
         "/var/lib/homepage:/app/config" 
         "/var/lib/homepage/images:/app/public/images"
       ];
-      ports = [ "3000:3000" ];
+      ports = [ "127.1.0.1:3000:3000" ];
       environment = {
         HOMEPAGE_ALLOWED_HOSTS = "gethomepage.dev,home.mesh.loranjennings.com";
         HOMEPAGE_AUTH_ENABLED = "true";

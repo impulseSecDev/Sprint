@@ -75,7 +75,7 @@
         listen = [ { addr = "100.64.0.12"; port = 443; ssl = true; } ];
         locations = {
           "/" = {
-            proxyPass = "http://127.0.0.1:11379";
+            proxyPass = "http://127.5.0.1:11379";
           };
         };
       };
@@ -86,7 +86,7 @@
         listen = [ { addr = "100.64.0.12"; port = 443; ssl = true; } ];
         locations = {
           "/" = {
-            proxyPass = "http://127.0.0.1:27099";
+            proxyPass = "http://127.3.0.1:27099";
           };
         };
       };
@@ -97,7 +97,7 @@
         listen = [ { addr = "100.64.0.12"; port = 443; ssl = true; } ];
         locations = {
           "/" = {
-            proxyPass = "http://127.0.0.1:63497";
+            proxyPass = "http://127.4.0.1:63497";
           };
         };
       };
@@ -122,7 +122,7 @@
         listen = [ { addr = "100.64.0.12"; port = 443; ssl = true; } ];
         locations = {
           "/" = {
-            proxyPass = "http://127.0.0.1:3000";
+            proxyPass = "http://127.1.0.1:3000";
             extraConfig = ''
             '';
           };
@@ -134,7 +134,7 @@
         listen = [ { addr = "100.64.0.12"; port = 443; ssl = true; } ];
         locations = {
           "/" = {
-            proxyPass = "http://127.0.0.1:5006";
+            proxyPass = "http://127.6.0.1:5006";
             extraConfig = ''
             '';
           };
@@ -146,7 +146,7 @@
         listen = [ { addr = "100.64.0.12"; port = 443; ssl = true; } ];
         locations = {
           "/" = {
-            proxyPass = "http://127.0.0.1:3456";
+            proxyPass = "http://127.2.0.1:3456";
             extraConfig = ''
             '';
           };

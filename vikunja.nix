@@ -91,7 +91,7 @@
         "/var/lib/vikunja/files:/app/vikunja/files:rw"
     ];
     ports = [
-      "3456:3456/tcp"
+      "127.2.0.1:3456:3456/tcp"
     ];
     dependsOn = [
       "vikunja-db"

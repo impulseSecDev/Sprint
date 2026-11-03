@@ -16,6 +16,7 @@
       ./actual.nix
       ./vikunja.nix
       ./nocodb.nix
+      ./drawio.nix
     ];
 
   fileSystems."/boot/firmware".options = lib.mkForce [ "noatime" "nofail" ];

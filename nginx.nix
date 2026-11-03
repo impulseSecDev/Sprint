@@ -164,6 +164,16 @@
           };
         };
       };
+      "draw.mesh.loranjennings.com" = {
+        useACMEHost = "mesh.loranjennings.com";
+        forceSSL = true;
+        listen = [ { addr = "100.64.0.12"; port = 443; ssl = true; } ];
+        locations = {
+          "/" = {
+            proxyPass = "http://127.7.0.1:8080";
+          };
+        };
+      };
     };
   };
 
